@@ -15,6 +15,10 @@ public class Consola {
         this.ncuenta = ncuenta;
     }
 
+    Consola() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
     public double getSaldo() {
         return saldo;
     }
