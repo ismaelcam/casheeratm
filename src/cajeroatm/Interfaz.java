@@ -5,7 +5,6 @@
  */
 package cajeroatm;
 
-
 import java.awt.CardLayout;
 import javax.swing.JOptionPane;
 
@@ -14,10 +13,11 @@ import javax.swing.JOptionPane;
  * @author brondon
  */
 public class Interfaz extends javax.swing.JFrame {
-    
+
+    int numcliente;
     Consola c1, c2;
     Consola clientes[];
-    int numcliente;
+
     /**
      * Creates new form Interfaz
      */
@@ -25,13 +25,9 @@ public class Interfaz extends javax.swing.JFrame {
         initComponents();
         c1 = new Consola(2000, "2141", "1818 1818 1818 1818");
         c2 = new Consola(3500, "1818", "2141 2141 2141 2141");
-       
         clientes = new Consola[2];
         clientes[0] = c1;
         clientes[1] = c2;
-        
-        
-
     }
 
     /**
@@ -55,25 +51,34 @@ public class Interfaz extends javax.swing.JFrame {
         jFrame1 = new javax.swing.JFrame();
         jPanel4 = new javax.swing.JPanel();
         mainPanel = new javax.swing.JPanel();
-        menuPanel = new javax.swing.JPanel();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
-        movimientosPanel = new javax.swing.JPanel();
-        resumenMovimientos = new javax.swing.JPanel();
-        retiro = new javax.swing.JPanel();
-        montoRetiro = new javax.swing.JTextField();
-        jLabel4 = new javax.swing.JLabel();
-        Aceptar = new javax.swing.JButton();
-        atras = new javax.swing.JButton();
         loginPanel = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         codigoNumeroTarjeta = new javax.swing.JTextField();
         codigoNip = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
+        menuPanel = new javax.swing.JPanel();
+        jButton2 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
+        jButton4 = new javax.swing.JButton();
+        jButton5 = new javax.swing.JButton();
+        jButton6 = new javax.swing.JButton();
+        depositarAOtraCuenta = new javax.swing.JPanel();
+        jButton7 = new javax.swing.JButton();
+        jTextField1 = new javax.swing.JTextField();
+        jLabel6 = new javax.swing.JLabel();
+        jTextField3 = new javax.swing.JTextField();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jTextField2 = new javax.swing.JTextField();
+        mostrarInformacion = new javax.swing.JPanel();
+        retiro = new javax.swing.JPanel();
+        montoRetiro = new javax.swing.JTextField();
+        jLabel4 = new javax.swing.JLabel();
+        Aceptar = new javax.swing.JButton();
+        atras = new javax.swing.JButton();
+        jLabel5 = new javax.swing.JLabel();
+        deposito = new javax.swing.JPanel();
 
         jLabel2.setText("jLabel2");
 
@@ -186,6 +191,71 @@ public class Interfaz extends javax.swing.JFrame {
 
         mainPanel.setLayout(new java.awt.CardLayout());
 
+        jLabel1.setText("Numero de tarjeta");
+
+        jLabel3.setText("NIP");
+
+        codigoNumeroTarjeta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                codigoNumeroTarjetaActionPerformed(evt);
+            }
+        });
+
+        codigoNip.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                codigoNipActionPerformed(evt);
+            }
+        });
+        codigoNip.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                codigoNipKeyPressed(evt);
+            }
+        });
+
+        jButton1.setText("Aceptar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout loginPanelLayout = new javax.swing.GroupLayout(loginPanel);
+        loginPanel.setLayout(loginPanelLayout);
+        loginPanelLayout.setHorizontalGroup(
+            loginPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(loginPanelLayout.createSequentialGroup()
+                .addGap(25, 25, 25)
+                .addGroup(loginPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel1)
+                    .addComponent(jLabel3))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(loginPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(codigoNumeroTarjeta)
+                    .addGroup(loginPanelLayout.createSequentialGroup()
+                        .addGroup(loginPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jButton1)
+                            .addComponent(codigoNip, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 121, Short.MAX_VALUE)))
+                .addContainerGap())
+        );
+        loginPanelLayout.setVerticalGroup(
+            loginPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(loginPanelLayout.createSequentialGroup()
+                .addGap(39, 39, 39)
+                .addGroup(loginPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(codigoNumeroTarjeta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(loginPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(codigoNip, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel3))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jButton1)
+                .addContainerGap(75, Short.MAX_VALUE))
+        );
+
+        mainPanel.add(loginPanel, "loginPanel");
+
         jButton2.setText("Deposito");
         jButton2.setToolTipText("");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -195,8 +265,18 @@ public class Interfaz extends javax.swing.JFrame {
         });
 
         jButton3.setText("Mostrar informacion");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         jButton4.setText("Depositar a otra cuenta");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
 
         jButton5.setText("Retirar");
         jButton5.addActionListener(new java.awt.event.ActionListener() {
@@ -217,58 +297,112 @@ public class Interfaz extends javax.swing.JFrame {
         menuPanelLayout.setHorizontalGroup(
             menuPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(menuPanelLayout.createSequentialGroup()
-                .addGap(124, 124, 124)
-                .addGroup(menuPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(97, Short.MAX_VALUE))
+                .addGap(78, 78, 78)
+                .addGroup(menuPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(77, Short.MAX_VALUE))
         );
         menuPanelLayout.setVerticalGroup(
             menuPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(menuPanelLayout.createSequentialGroup()
-                .addGap(28, 28, 28)
+                .addGap(21, 21, 21)
                 .addComponent(jButton2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(11, 11, 11)
                 .addComponent(jButton3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(11, 11, 11)
                 .addComponent(jButton4)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(11, 11, 11)
                 .addComponent(jButton5)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(6, 6, 6)
                 .addComponent(jButton6)
-                .addContainerGap(34, Short.MAX_VALUE))
+                .addContainerGap(24, Short.MAX_VALUE))
         );
 
         mainPanel.add(menuPanel, "menuPanel");
 
-        javax.swing.GroupLayout movimientosPanelLayout = new javax.swing.GroupLayout(movimientosPanel);
-        movimientosPanel.setLayout(movimientosPanelLayout);
-        movimientosPanelLayout.setHorizontalGroup(
-            movimientosPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 398, Short.MAX_VALUE)
+        jButton7.setText("Aceptar");
+        jButton7.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton7MouseClicked(evt);
+            }
+        });
+        jButton7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton7ActionPerformed(evt);
+            }
+        });
+
+        jLabel6.setText("Cuenta a depositar");
+
+        jLabel8.setText("Confirmar NIP");
+
+        jLabel7.setText("Monto");
+
+        javax.swing.GroupLayout depositarAOtraCuentaLayout = new javax.swing.GroupLayout(depositarAOtraCuenta);
+        depositarAOtraCuenta.setLayout(depositarAOtraCuentaLayout);
+        depositarAOtraCuentaLayout.setHorizontalGroup(
+            depositarAOtraCuentaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(depositarAOtraCuentaLayout.createSequentialGroup()
+                .addGroup(depositarAOtraCuentaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(depositarAOtraCuentaLayout.createSequentialGroup()
+                        .addGap(100, 100, 100)
+                        .addGroup(depositarAOtraCuentaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jButton7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jTextField3))
+                        .addGap(0, 151, Short.MAX_VALUE))
+                    .addGroup(depositarAOtraCuentaLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(depositarAOtraCuentaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel7)
+                            .addComponent(jLabel6))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(depositarAOtraCuentaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jTextField1)
+                            .addComponent(jTextField2))))
+                .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, depositarAOtraCuentaLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(161, 161, 161))
         );
-        movimientosPanelLayout.setVerticalGroup(
-            movimientosPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 216, Short.MAX_VALUE)
+        depositarAOtraCuentaLayout.setVerticalGroup(
+            depositarAOtraCuentaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, depositarAOtraCuentaLayout.createSequentialGroup()
+                .addGap(43, 43, 43)
+                .addGroup(depositarAOtraCuentaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel6)
+                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(depositarAOtraCuentaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel7)
+                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(15, 15, 15)
+                .addComponent(jLabel8)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton7)
+                .addGap(26, 26, 26))
         );
 
-        mainPanel.add(movimientosPanel, "movimientosPanel");
+        mainPanel.add(depositarAOtraCuenta, "movimientosPanel");
 
-        javax.swing.GroupLayout resumenMovimientosLayout = new javax.swing.GroupLayout(resumenMovimientos);
-        resumenMovimientos.setLayout(resumenMovimientosLayout);
-        resumenMovimientosLayout.setHorizontalGroup(
-            resumenMovimientosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 398, Short.MAX_VALUE)
+        javax.swing.GroupLayout mostrarInformacionLayout = new javax.swing.GroupLayout(mostrarInformacion);
+        mostrarInformacion.setLayout(mostrarInformacionLayout);
+        mostrarInformacionLayout.setHorizontalGroup(
+            mostrarInformacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 332, Short.MAX_VALUE)
         );
-        resumenMovimientosLayout.setVerticalGroup(
-            resumenMovimientosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 216, Short.MAX_VALUE)
+        mostrarInformacionLayout.setVerticalGroup(
+            mostrarInformacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 199, Short.MAX_VALUE)
         );
 
-        mainPanel.add(resumenMovimientos, "resumenMovimientos");
+        mainPanel.add(mostrarInformacion, "resumenMovimientos");
 
         montoRetiro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -307,8 +441,11 @@ public class Interfaz extends javax.swing.JFrame {
                             .addComponent(montoRetiro, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(retiroLayout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(atras)))
-                .addContainerGap(170, Short.MAX_VALUE))
+                        .addComponent(atras))
+                    .addGroup(retiroLayout.createSequentialGroup()
+                        .addGap(41, 41, 41)
+                        .addComponent(jLabel5)))
+                .addContainerGap(104, Short.MAX_VALUE))
         );
         retiroLayout.setVerticalGroup(
             retiroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -321,73 +458,25 @@ public class Interfaz extends javax.swing.JFrame {
                     .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(Aceptar)
-                .addContainerGap(117, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(jLabel5)
+                .addContainerGap(82, Short.MAX_VALUE))
         );
 
         mainPanel.add(retiro, "retiro");
 
-        jLabel1.setText("N TARJETA");
-
-        jLabel3.setText("NIP");
-
-        codigoNumeroTarjeta.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                codigoNumeroTarjetaActionPerformed(evt);
-            }
-        });
-
-        codigoNip.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                codigoNipActionPerformed(evt);
-            }
-        });
-
-        jButton1.setText("ACEPTAR");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout loginPanelLayout = new javax.swing.GroupLayout(loginPanel);
-        loginPanel.setLayout(loginPanelLayout);
-        loginPanelLayout.setHorizontalGroup(
-            loginPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(loginPanelLayout.createSequentialGroup()
-                .addGroup(loginPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(loginPanelLayout.createSequentialGroup()
-                        .addGap(75, 75, 75)
-                        .addGroup(loginPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(loginPanelLayout.createSequentialGroup()
-                                .addComponent(jLabel3)
-                                .addGap(161, 161, 161)
-                                .addComponent(codigoNip))
-                            .addGroup(loginPanelLayout.createSequentialGroup()
-                                .addComponent(jLabel1)
-                                .addGap(109, 109, 109)
-                                .addComponent(codigoNumeroTarjeta, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addGroup(loginPanelLayout.createSequentialGroup()
-                        .addGap(161, 161, 161)
-                        .addComponent(jButton1)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        javax.swing.GroupLayout depositoLayout = new javax.swing.GroupLayout(deposito);
+        deposito.setLayout(depositoLayout);
+        depositoLayout.setHorizontalGroup(
+            depositoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 332, Short.MAX_VALUE)
         );
-        loginPanelLayout.setVerticalGroup(
-            loginPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(loginPanelLayout.createSequentialGroup()
-                .addGap(84, 84, 84)
-                .addGroup(loginPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(codigoNumeroTarjeta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(22, 22, 22)
-                .addGroup(loginPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(codigoNip, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(36, 36, 36)
-                .addComponent(jButton1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        depositoLayout.setVerticalGroup(
+            depositoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 199, Short.MAX_VALUE)
         );
 
-        mainPanel.add(loginPanel, "loginPanel");
+        mainPanel.add(deposito, "card7");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -411,15 +500,14 @@ public class Interfaz extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         for (numcliente = 0; numcliente < clientes.length; numcliente++) {
-           if(clientes[numcliente].getNip().equals(codigoNip.getText()) &&
-              clientes[numcliente].getNcuenta().equals(codigoNumeroTarjeta.getText())){  
-               JOptionPane.showMessageDialog(null, "Listo");
-           } 
+            if (clientes[numcliente].getNip().equals(codigoNip.getText())
+                    && clientes[numcliente].getNcuenta().equals(codigoNumeroTarjeta.getText())) {
+                JOptionPane.showMessageDialog(null, "Listo");
+                JOptionPane.showMessageDialog(null, "Cliente numero " + (numcliente));
+                CardLayout card1 = (CardLayout) mainPanel.getLayout();
+                card1.show(mainPanel, "menuPanel");
+            }
         }
-        JOptionPane.showMessageDialog(null, +numcliente);
-        
-        CardLayout card1=(CardLayout)mainPanel.getLayout();
-        card1.show(mainPanel,"menuPanel");
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void codigoNipActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_codigoNipActionPerformed
@@ -431,7 +519,7 @@ public class Interfaz extends javax.swing.JFrame {
     }//GEN-LAST:event_codigoNumeroTarjetaActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
- 
+
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void montoRetiroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_montoRetiroActionPerformed
@@ -439,11 +527,9 @@ public class Interfaz extends javax.swing.JFrame {
     }//GEN-LAST:event_montoRetiroActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-               // Retiro
-        CardLayout card2=(CardLayout)mainPanel.getLayout();
-        card2.show(mainPanel,"retiro");
-        double retiro1 = Float.parseFloat(montoRetiro.getText());
-        clientes[numcliente].retirar(retiro1);
+        // Retiro
+        CardLayout card2 = (CardLayout) mainPanel.getLayout();
+        card2.show(mainPanel, "retiro");
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
@@ -451,15 +537,48 @@ public class Interfaz extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton6ActionPerformed
 
     private void AceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AceptarActionPerformed
-      //acciones del boton aceptar
-       clientes[numcliente].setSaldo(clientes[numcliente].getSaldo()-Double.parseDouble(montoRetiro.getText()));
-      JOptionPane.showMessageDialog(null , "Retiro realizado con éxito.");
-      montoRetiro.setText(null);
+        //acciones del boton aceptar
+        c1.setSaldo(c1.getSaldo() - Double.parseDouble(montoRetiro.getText()));
+        JOptionPane.showMessageDialog(null, "Retiro realizado con éxito.");
+        jLabel5.setText("Su nuevo saldo es de " + c1.getSaldo());
+        montoRetiro.setText(null);
     }//GEN-LAST:event_AceptarActionPerformed
 
     private void atrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_atrasActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_atrasActionPerformed
+
+    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+if (clientes[numcliente].getNip().equals(jTextField3.getText())) {
+if (clientes[numcliente].getSaldo() >= Double.parseDouble(jTextField3.getText())) {
+            clientes[numcliente].setSaldo(clientes[numcliente].getSaldo() - Double.parseDouble(jTextField3.getText()));
+            clientes[numcliente+1].setSaldo(clientes[numcliente+1].getSaldo() + Double.parseDouble(jTextField3.getText()));
+        } else {
+            JOptionPane.showMessageDialog(null, "Fondos insuficientes");
+        }
+}
+else{
+    JOptionPane.showMessageDialog(null, "NIP incorrecto");
+}
+    }//GEN-LAST:event_jButton7ActionPerformed
+
+    private void jButton7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton7MouseClicked
+        
+    }//GEN-LAST:event_jButton7MouseClicked
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        CardLayout card3 = (CardLayout) mainPanel.getLayout();
+        card3.show(mainPanel, "mostrarInformacion");
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void codigoNipKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_codigoNipKeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_codigoNipKeyPressed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        CardLayout card4 = (CardLayout) mainPanel.getLayout();
+        card4.show(mainPanel, "depositarAOtraCuenta");
+    }//GEN-LAST:event_jButton4ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -472,7 +591,7 @@ public class Interfaz extends javax.swing.JFrame {
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
+                if ("Windows".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
                 }
@@ -499,12 +618,15 @@ public class Interfaz extends javax.swing.JFrame {
     private javax.swing.JButton atras;
     private javax.swing.JTextField codigoNip;
     private javax.swing.JTextField codigoNumeroTarjeta;
+    private javax.swing.JPanel depositarAOtraCuenta;
+    private javax.swing.JPanel deposito;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
+    private javax.swing.JButton jButton7;
     private javax.swing.JFrame jFrame1;
     private javax.swing.JInternalFrame jInternalFrame1;
     private javax.swing.JInternalFrame jInternalFrame2;
@@ -512,19 +634,25 @@ public class Interfaz extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JLayeredPane jLayeredPane1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
+    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField jTextField2;
+    private javax.swing.JTextField jTextField3;
     private javax.swing.JToolBar jToolBar1;
     private javax.swing.JPanel loginPanel;
     private javax.swing.JPanel mainPanel;
     private javax.swing.JPanel menuPanel;
     private javax.swing.JTextField montoRetiro;
-    private javax.swing.JPanel movimientosPanel;
+    private javax.swing.JPanel mostrarInformacion;
     private java.awt.Panel panel1;
-    private javax.swing.JPanel resumenMovimientos;
     private javax.swing.JPanel retiro;
     // End of variables declaration//GEN-END:variables
 }

@@ -15,8 +15,7 @@ public class Consola {
         this.ncuenta = ncuenta;
     }
 
-    Consola() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public Consola() {
     }
 
     public double getSaldo() {
@@ -69,7 +68,6 @@ public class Consola {
     public void retirar(double retirar) {
         if (this.saldo >= retirar) {
             this.saldo = this.saldo - retirar;
-            JOptionPane.showMessageDialog(null, "Saldo anterior: " + (this.saldo + retirar) + "\nRetiro: " + retirar + "\nSaldo actual: " + this.saldo);
         } else {
             JOptionPane.showMessageDialog(null, "Fondos insuficientes");
         }
